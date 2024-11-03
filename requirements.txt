@@ -1,0 +1,7 @@
+google-generativeai
+google-ai-generativelanguage
+sentence-transformers
+langchain-community
+langchain
+nltk
+streamlit
