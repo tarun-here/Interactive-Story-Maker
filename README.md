@@ -1,27 +1,77 @@
-# Interactive-Story-Maker
-Create your own interactive story with the direction you want to go with each scene.
+# Interactive Story Maker (RAG + Gemini Flash)
 
-* **Create story worlds:** Define the setting, time period, and atmosphere.
-* **Develop characters:**  Give them names, traits, backstories, and roles.
-* **Make choices:**  Shape the narrative through their decisions.
+An AI-powered interactive storytelling application where you create worlds, define characters, make choices, and watch your narrative unfold using Retrieval-Augmented Generation (RAG) and Google Gemini 2.5 Flash.
 
+## Features
 
-**Features:**
+### Story Worlds
 
-* **Dynamic story generation:** Used Google's Gemini Api for story generation and language understanding. 
-* **Knowledge graph:**  Stores information about the story world and characters for context-aware responses.
-* **Lemmatization:** Processes input to understand the core meaning of their choices.
+* Define the world name, setting, time period, and atmosphere.
+* All world data is embedded and stored in ChromaDB for retrieval.
 
-**Screenshots:**
+### Characters
+
+* Add characters with traits, backstories, and roles.
+* Each character profile is stored as vector memory to maintain continuity.
+
+### Persistent Memory (RAG)
+
+The application stores and retrieves the following using vector search to ensure consistent storytelling and continuity:
+
+* World metadata
+* Character profiles
+* Previous scenes
+* User choices
+
+### RAG-Based Storytelling
+
+Gemini 2.5 Flash, combined with the retrieved memories, intelligently generates:
+
+* Story continuations
+* Follow-up questions
+* Context-aware responses
+
+### Choice-Driven Narrative
+
+Every user input is embedded, saved, and directly influences future story decisions, creating a truly unique and branching narrative path.
+
+## Screenshots
 
 <p align="center">
-  <img src="Screenshots/ss_interactive-story_1.png" width="400" /> 
-  <img src="Screenshots/ss_interactive-story_2.png" width="400" /> 
+  <img src="screenshots/interactive-story-ss1.png" width="1000" />
+  <img src="screenshots/interactive-story-ss2.png" width="1000" />
 </p>
 
+## Installation
 
-**How to Run:**
+1.  **Create and activate a virtual environment:**
 
-1.  **Install dependencies:** `pip install -r requirements.txt`
-2.  **Set your API key:** Replace `GEMINI_API_KEY` with your actual key.
-3.  **Run the app:** `streamlit run main.py`
+    ```bash
+    python -m venv myenv
+    source myenv/Scripts/activate  # Use 'source myenv/bin/activate' on Linux/macOS
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Set your Gemini API key:**
+
+    ```bash
+    export GEMINI_API_KEY="your_api_key_here"
+    ```
+
+4.  **Run the application:**
+
+    ```bash
+    streamlit run main.py
+    ```
+
+## Tech Used
+
+* **Model:** `google/gemini-2.5-flash`
+* **Vector Database:** ChromaDB (for vector memory)
+* **Embedding Model:** SentenceTransformers (`all-mpnet-base-v2`)
+* **Frameworks:** LangChain, Streamlit
