@@ -1,0 +1,14 @@
+google-generativeai
+google-ai-generativelanguage
+
+sentence-transformers
+
+langchain
+langchain-community
+
+chromadb
+
+nltk
+streamlit
+
+protobuf
